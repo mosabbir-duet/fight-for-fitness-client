@@ -31,7 +31,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="shadow-xl border-b-2 border-red-600 w-full fixed top-0 left-0 z-50 bg-slate-950 bg-opacity-80">
+    <div className="shadow-xl border-b-2 border-red-600 w-full fixed top-0 left-0 z-50 bg-[#13182A] bg-opacity-80">
       <div className="flex md:flex items-center justify-between py-2 md:px-10 container mx-auto">
         {/* <div
           className="font-bold text-2xl cursor-pointer flex items-center  
@@ -72,7 +72,9 @@ const Navbar = () => {
           ))} */}
           {linksItem}
         </ul>
-        <button className="btn btn-warning">Get Started</button>
+        <button className="btn bg-[#E43D4E] border-none hover:rounded-3xl hover:bg-red-700 hover:duration-75">
+          Get Started
+        </button>
       </div>
     </div>
   );

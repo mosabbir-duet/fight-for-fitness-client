@@ -1,14 +1,14 @@
 import React from "react";
 import PageName from "../../../components/PageName";
 import Banner from "../Banner/Banner";
-import Dark from "../Dark/dark";
+import Program from "../Program/Program";
 
 const Home = () => {
   return (
     <div>
       <PageName pageName="Home"></PageName>
       <Banner></Banner>
-      <Dark></Dark>
+      <Program></Program>
     </div>
   );
 };
