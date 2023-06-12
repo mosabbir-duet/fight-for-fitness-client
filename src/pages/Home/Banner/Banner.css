@@ -1,0 +1,61 @@
+.slider-text {
+  @apply space-y-3 md:space-y-5 lg:space-y-7 absolute top-1/2 left-1/2  -translate-x-1/2 -translate-y-1/2;
+}
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+/* .swiper-button-next {
+  color: brown;
+  font-size: 12px;
+} */
+
+/* .swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  min-height: 560px;
+}
+
+.autoplay-progress {
+  position: absolute;
+  right: 16px;
+  bottom: 40px;
+  z-index: 10;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: var(--swiper-theme-color);
+}
+
+.autoplay-progress svg {
+  --progress: 0;
+  position: absolute;
+  left: 0;
+  top: 0px;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  stroke-width: 4px;
+  stroke: var(--swiper-theme-color);
+  fill: none;
+  stroke-dashoffset: calc(125.6 * (1 - var(--progress)));
+  stroke-dasharray: 125.6;
+  transform: rotate(-90deg);
+}
