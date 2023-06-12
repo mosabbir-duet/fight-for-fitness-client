@@ -10,8 +10,18 @@ const Program = () => {
   return (
     <>
       <div
-        style={{ backgroundImage: `url(${program})`, height: "1080px" }}
-        className="py-48 px-4"
+        style={{
+          backgroundImage: `url(${program})`,
+          height: "1080px",
+          minHeight: "400px",
+
+          /* Create the parallax scrolling effect */
+          backgroundAttachment: "fixed",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+        }}
+        className="py-48 px-4 "
       >
         <div className="pb-24">
           <h2 className="text-5xl font-bold text-center text-white">

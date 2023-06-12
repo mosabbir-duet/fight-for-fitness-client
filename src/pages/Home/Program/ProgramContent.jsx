@@ -3,9 +3,13 @@ import React from "react";
 const ProgramContent = ({ title, image, info }) => {
   return (
     <>
-      <div className="card card-compact max-w-80 sm:w-96  mx-auto hover:scale-105 duration-700 rounded-xl">
+      <div className="card card-compact max-w-80 sm:w-96  mx-auto hover:scale-105 duration-700 rounded-xl my-8 border border-red-600">
         <figure>
-          <img src={image} alt="Shoes" className="w-full hover:scale-110" />
+          <img
+            src={image}
+            alt="Shoes"
+            className="w-full hover:scale-110 duration-500"
+          />
         </figure>
         <div className="card-body bg-[#13182a] rounded-b-xl text-center sm:px-4">
           <div className="space-y-2">
