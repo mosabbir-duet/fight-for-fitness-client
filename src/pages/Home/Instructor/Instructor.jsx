@@ -1,14 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import InstructorInfo from "./InstructorInfo";
 
 const Instructor = () => {
+  const [instructors, setInstructors] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/instructors")
+      .then((res) => res.json())
+      .then((data) => {
+        // console.log(data)
+        setInstructors(data);
+      });
+  }, []);
   return (
-    <div className="bg-[#13182a] px-8 py-12 md:py-44 text-center space-y-7">
+    <div className="bg-[#13182a] px-4 py-12 md:py-44 text-center space-y-7">
       <p className="text-[#e43d4e] uppercase">Meet Our Trainer</p>
       <h2 className="text-2xl md:text-6xl text-center text-gray-200">
         Get the training under best trainers
       </h2>
-      <InstructorInfo></InstructorInfo>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 pt-8">
+        {instructors.map((instructor) => (
+          <InstructorInfo
+            key={instructor._id}
+            instructor={instructor}
+          ></InstructorInfo>
+        ))}
+      </div>
     </div>
   );
 };

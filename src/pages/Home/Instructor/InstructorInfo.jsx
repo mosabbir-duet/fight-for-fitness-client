@@ -1,5 +1,6 @@
-import React from "react";
-const InstructorInfo = () => {
+const InstructorInfo = ({ instructor }) => {
+  console.log(instructor);
+  const { image, name } = instructor || {};
   return <></>;
 };
 
