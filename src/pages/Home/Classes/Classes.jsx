@@ -2,22 +2,22 @@ import React from "react";
 import useFetchSortedInfo from "../../../Hooks/useFetchSortedInfo";
 import ShowInfo from "../../../components/ShowInfo";
 
-const Instructor = () => {
-  const [instructors] = useFetchSortedInfo("instructors");
+const Classes = () => {
+  const [classes] = useFetchSortedInfo("instructors");
 
   return (
     <div className="bg-[#13182a] px-4 py-12 md:py-44 text-center space-y-7">
-      <p className="text-[#e43d4e] uppercase">Meet Our Trainer</p>
+      <p className="text-[#e43d4e] uppercase">See Our Classes</p>
       <h2 className="text-2xl md:text-6xl text-center text-gray-200">
-        Get the training under best trainers
+        Get the better classes from our trainers
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 pt-8">
-        {instructors.map((instructor) => (
-          <ShowInfo key={instructor._id} data={instructor} info={""}></ShowInfo>
+        {classes.map((program) => (
+          <ShowInfo key={program._id} data={program} info="class"></ShowInfo>
         ))}
       </div>
     </div>
   );
 };
 
-export default Instructor;
+export default Classes;
