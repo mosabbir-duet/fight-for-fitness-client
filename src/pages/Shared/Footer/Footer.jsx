@@ -96,11 +96,7 @@ const Footer = () => {
       </div>
       <div className="footer items-center p-4 md:px-12 ">
         <div className="items-center grid-flow-col">
-          <p
-            className="text-white text-lg "
-            data-aos="flip-down"
-            data-aos-duration="3000"
-          >
+          <p className="text-white text-lg ">
             Copyright <span className="text-[#e43d4e]"> &copy;</span>{" "}
             {new Date().getFullYear()} - All right reserved
           </p>
