@@ -1,17 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import useFetchSortedInfo from "../../../Hooks/useFetchSortedInfo";
 import InstructorInfo from "./InstructorInfo";
 
 const Instructor = () => {
-  const [instructors, setInstructors] = useState([]);
+  const [instructors] = useFetchSortedInfo("instructors");
 
-  useEffect(() => {
-    fetch("http://localhost:3000/instructors")
-      .then((res) => res.json())
-      .then((data) => {
-        // console.log(data)
-        setInstructors(data);
-      });
-  }, []);
   return (
     <div className="bg-[#13182a] px-4 py-12 md:py-44 text-center space-y-7">
       <p className="text-[#e43d4e] uppercase">Meet Our Trainer</p>
