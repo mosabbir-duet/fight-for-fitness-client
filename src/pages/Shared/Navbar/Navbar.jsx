@@ -34,6 +34,14 @@ const Navbar = () => {
           Classes
         </Link>
       </li>
+      <li className="md:ml-8  text-xl font-semibold md:my-0 py-2  ">
+        <Link
+          to="/login"
+          className="text-white hover:text-gray-400 duration-500"
+        >
+          Login
+        </Link>
+      </li>
     </>
   );
   return (
