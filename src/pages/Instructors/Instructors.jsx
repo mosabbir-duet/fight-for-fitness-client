@@ -6,11 +6,9 @@ import PageName from "../../components/PageName";
 import InstructorsInfo from "./InstructorsInfo";
 const Instructors = () => {
   const [instructors] = useFetch("instructors");
-  //   const employees = [
-  //     { emp_id: 1, emp_name: "Shubham", emp_age: 22 },
-  //     { emp_id: 1, emp_name: "Joe", emp_age: 23 },
-  //  ];
-  var map = new Map();
+
+  //   get distinct value from instructors
+  let map = new Map();
   for (let instructor of instructors) {
     map.set(instructor["name"], instructor);
   }
@@ -25,7 +23,7 @@ const Instructors = () => {
         <h2 className="text-2xl md:text-6xl text-center text-gray-200">
           Get the training under best trainers
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 pt-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 pt-8 px-4">
           {UniqueInstructors.map((instructor) => (
             <InstructorsInfo
               key={instructor._id}
