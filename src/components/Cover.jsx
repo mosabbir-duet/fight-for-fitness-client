@@ -3,8 +3,8 @@ import { Typewriter } from "react-simple-typewriter";
 const Cover = ({ img, title }) => {
   return (
     <div className="relative">
-      <img src={img} alt="" className="h-full w-full" />
-      <h2 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-5xl font-semibold text-[#e43d4e]">
+      <img src={img} alt="" className=" h-80 md:h-full w-full" />
+      <h2 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-5xl md:text-7xl font-semibold text-[#e43d4e]">
         <Typewriter
           words={[`${title}`]}
           loop={5}
