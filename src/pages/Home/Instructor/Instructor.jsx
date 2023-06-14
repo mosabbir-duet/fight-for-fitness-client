@@ -1,9 +1,10 @@
 import React from "react";
-import useFetchSortedInfo from "../../../Hooks/useFetchSortedInfo";
+import useFetch from "../../../Hooks/useFetch";
 import ShowInfo from "../../../components/ShowInfo";
 
 const Instructor = () => {
-  const [instructors] = useFetchSortedInfo("instructors");
+  const [instructors] = useFetch("info");
+  // console.log(instructors);
 
   return (
     <div className="bg-[#13182a] px-4 py-12 md:py-44 text-center space-y-7">

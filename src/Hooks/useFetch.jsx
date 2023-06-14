@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const useFetchSortedInfo = (typeOfInfo) => {
+const useFetch = (typeOfInfo) => {
   const [info, setInfo] = useState([]);
 
   useEffect(() => {
@@ -14,4 +14,4 @@ const useFetchSortedInfo = (typeOfInfo) => {
   return [info];
 };
 
-export default useFetchSortedInfo;
+export default useFetch;
