@@ -5,10 +5,13 @@ import {
   FaChalkboardTeacher,
   FaHome,
   FaMarker,
+  FaRegEdit,
+  FaUserEdit,
 } from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
 
 const Dashboard = () => {
+  const isAdmin = true;
   return (
     <div>
       <div className="drawer lg:drawer-open">
@@ -32,6 +35,24 @@ const Dashboard = () => {
           </label>
           <ul className="menu p-4 w-80 h-full  text-base-content ">
             {/* Sidebar content here */}
+            {isAdmin ? (
+              <>
+                <li className="text-lg text-gray-50">
+                  <NavLink to="/dashboard/selectedclass">
+                    <FaRegEdit className="text-[#e43d4e]"></FaRegEdit>Manage
+                    Classes
+                  </NavLink>
+                </li>
+                <li className=" text-lg text-gray-50">
+                  <NavLink to="/dashboard/enrolledclass">
+                    <FaUserEdit className="text-[#e43d4e]"></FaUserEdit>Manage
+                    Users
+                  </NavLink>
+                </li>
+              </>
+            ) : (
+              <></>
+            )}
             <li className="text-lg text-gray-50">
               <NavLink to="/dashboard/selectedclass">
                 <FaBook className="text-[#e43d4e]"></FaBook>My Selected Class

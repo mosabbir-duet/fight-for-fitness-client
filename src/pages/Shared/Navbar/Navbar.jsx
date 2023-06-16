@@ -48,6 +48,7 @@ const Navbar = () => {
       </li>
     </>
   );
+  const isAdmin = true;
   return (
     <div className="shadow-xl border-b-2 border-red-600 w-full fixed top-0 left-0 z-50 bg-[#13182A] bg-opacity-80">
       <div className="flex md:flex items-center justify-between py-3.5 md:px-10 container mx-auto">
