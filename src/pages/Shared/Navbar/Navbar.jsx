@@ -1,52 +1,56 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../../../assets/images/logo.png";
+import { AuthContext } from "../../../providers/AuthProvider";
+import "./Navbar.css";
 const Navbar = () => {
   let [open, setOpen] = useState(false);
   const toggleMenu = () => {
     setOpen(!open);
   };
+
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleToLogOut = () => {
+    logOut()
+      .then((result) => {})
+      .catch((error) => console.log(error.message));
+  };
   const linksItem = (
     <>
-      <li className="md:ml-8  text-xl font-semibold md:my-0 py-2 border-dotted border-b-red-200  md:border-0">
-        <Link
+      <li className="md:ml-8  text-xl font-semibold md:my-0 py-2 ">
+        <NavLink
           to="/"
-          className="text-white hover:text-[#E43D4E] duration-500   "
+          className={`text-white hover:text-[#E43D4E] duration-500 ${({
+            isActive,
+          }) => (isActive ? "active" : "default")}`}
         >
           Home
-        </Link>
+        </NavLink>
       </li>
 
       <li className="md:ml-8  text-xl font-semibold md:my-0 py-2  ">
-        <Link
+        <NavLink
           to="/instructors"
           className="text-white hover:text-gray-400 duration-500"
         >
           Instructors
-        </Link>
+        </NavLink>
       </li>
       <li className="md:ml-8  text-xl font-semibold md:my-0 py-2  ">
-        <Link
+        <NavLink
           to="/classes"
           className="text-white hover:text-gray-400 duration-500"
         >
           Classes
-        </Link>
-      </li>
-      <li className="md:ml-8  text-xl font-semibold md:my-0 py-2  ">
-        <Link
-          to="/login"
-          className="text-white hover:text-gray-400 duration-500"
-        >
-          Login
-        </Link>
+        </NavLink>
       </li>
     </>
   );
   return (
     <div className="shadow-xl border-b-2 border-red-600 w-full fixed top-0 left-0 z-50 bg-[#13182A] bg-opacity-80">
-      <div className="flex md:flex items-center justify-between py-2 md:px-10 container mx-auto">
+      <div className="flex md:flex items-center justify-between py-3.5 md:px-10 container mx-auto">
         {/* <div
           className="font-bold text-2xl cursor-pointer flex items-center  
     text-gray-800"
@@ -70,7 +74,7 @@ const Navbar = () => {
         </div>
 
         <ul
-          className={`md:flex md:items-center  absolute md:static md:z-auto left-0 w-full md:w-auto md:pl-0 p-4  transition-all duration-500 ease-in bg-red-300 text-center   md:bg-transparent ${
+          className={`md:flex md:items-center  absolute md:static md:z-auto left-0 w-full md:w-auto md:pl-0 p-4  transition-all duration-500 ease-in bg-[#13182a] text-center   md:bg-transparent ${
             open ? "top-28 " : "top-[-490px]"
           }`}
         >
@@ -86,9 +90,42 @@ const Navbar = () => {
           ))} */}
           {linksItem}
         </ul>
-        <button className="btn bg-[#E43D4E] border-none hover:rounded-3xl hover:bg-red-700 hover:duration-75">
+        {/* <button className="btn bg-[#E43D4E] border-none hover:rounded-3xl hover:bg-red-700 hover:duration-75">
           Get Started
-        </button>
+        </button> */}
+        {user ? (
+          <>
+            <div className="flex items-center">
+              <img
+                className="w-14 h-14 border-4 border-gray-400  px-0.5 rounded-full inline-block mr-4 "
+                src={user.photoURL}
+                alt=""
+                title={user?.displayName}
+              />
+              <Link
+                to="/dashboard"
+                className="nav-list-style btn btn-error me-2"
+              >
+                Dashboard
+              </Link>
+              <Link
+                onClick={handleToLogOut}
+                className="nav-list-style btn btn-warning"
+              >
+                SignOut
+              </Link>
+            </div>
+          </>
+        ) : (
+          <li className="md:ml-8  text-xl font-semibold md:my-0 py-2  ">
+            <NavLink
+              to="/login"
+              className="text-white hover:text-gray-400 duration-500"
+            >
+              Login
+            </NavLink>
+          </li>
+        )}
       </div>
     </div>
   );
