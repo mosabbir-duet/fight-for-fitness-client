@@ -27,6 +27,7 @@ const SelectedClass = () => {
                 key={cartItem._id}
                 cartItem={cartItem}
                 idx={idx}
+                refetch={refetch}
               ></ShowSelectedClass>
             ))}
           </tbody>
