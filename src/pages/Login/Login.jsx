@@ -43,7 +43,14 @@ const Login = () => {
         navigate(from, { replace: true });
         console.log(user);
       })
-      .catch((error) => console.error(error.message));
+      .catch((error) => {
+        Swal.fire({
+          icon: "error",
+          title: "Oops!!!",
+          text: error?.message,
+        });
+      });
+    reset();
   };
 
   const handleToGoogleSignIn = () => {

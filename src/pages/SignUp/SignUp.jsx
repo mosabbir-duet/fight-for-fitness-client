@@ -26,17 +26,17 @@ const SignUp = () => {
   const navigate = useNavigate();
 
   const onSubmit = (data) => {
-    createUser(data.email, data.password).then((result) => {
-      const loggedUser = result.user;
-      if (loggedUser) {
-        logOut()
-          .then((result) => {})
-          .catch((error) => console.log(error.message));
-      }
-      console.log(loggedUser);
+    createUser(data.email, data.password)
+      .then((result) => {
+        const loggedUser = result.user;
+        if (loggedUser) {
+          logOut()
+            .then((result) => {})
+            .catch((error) => console.log(error.message));
+        }
+        console.log(loggedUser);
 
-      updateUserProfile(data.name, data.photoURL)
-        .then(() => {
+        updateUserProfile(data.name, data.photoURL).then(() => {
           const saveUser = {
             name: data.name,
             email: data.email,
@@ -63,9 +63,16 @@ const SignUp = () => {
                 navigate("/");
               }
             });
-        })
-        .catch((error) => console.log(error));
-    });
+        });
+      })
+      .catch((error) => {
+        Swal.fire({
+          icon: "error",
+          title: "Oops!!!",
+          text: error?.message,
+        });
+      });
+    reset();
   };
 
   const handleToGoogleSignIn = () => {
@@ -77,7 +84,7 @@ const SignUp = () => {
           Swal.fire({
             icon: "success",
             title: "Welcome to Fight For Fitness!!!",
-            text: "User has been log in successfully.",
+            text: "User has been Sign Up successfully.",
           });
         }
         // navigate to home or desired directory
@@ -233,7 +240,7 @@ const SignUp = () => {
               <div className="form-control mt-6">
                 <input
                   type="submit"
-                  value="Log In"
+                  value="Sign Up"
                   className="btn bg-[#ff0018] border-none text-xl capitalize hover:bg-red-600"
                 />
               </div>

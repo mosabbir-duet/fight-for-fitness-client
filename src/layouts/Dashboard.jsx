@@ -9,9 +9,10 @@ import {
   FaUserEdit,
 } from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
+import useAdmin from "../Hooks/useAdmin";
 
 const Dashboard = () => {
-  const isAdmin = true;
+  const [isAdmin] = useAdmin();
   return (
     <div>
       <div className="drawer lg:drawer-open">
@@ -38,6 +39,11 @@ const Dashboard = () => {
             {isAdmin ? (
               <>
                 <li className="text-lg text-gray-50">
+                  <NavLink to="/dashboard/adminhome">
+                    <FaRegEdit className="text-[#e43d4e]"></FaRegEdit>Admin Home
+                  </NavLink>
+                </li>
+                <li className="text-lg text-gray-50">
                   <NavLink to="/dashboard/manageclass">
                     <FaRegEdit className="text-[#e43d4e]"></FaRegEdit>Manage
                     Classes
@@ -51,19 +57,27 @@ const Dashboard = () => {
                 </li>
               </>
             ) : (
-              <></>
+              <>
+                <li className="text-lg text-gray-50">
+                  <NavLink to="/dashboard/userhome">
+                    <FaBook className="text-[#e43d4e]"></FaBook>User Home
+                  </NavLink>
+                </li>
+                <li className="text-lg text-gray-50">
+                  <NavLink to="/dashboard/selectedclass">
+                    <FaBook className="text-[#e43d4e]"></FaBook>My Selected
+                    Class
+                  </NavLink>
+                </li>
+                <li className=" text-lg text-gray-50">
+                  <NavLink to="/dashboard/enrolledclass">
+                    <FaBookReader className="text-[#e43d4e]"></FaBookReader>My
+                    Enrolled Class
+                  </NavLink>
+                </li>
+              </>
             )}
-            <li className="text-lg text-gray-50">
-              <NavLink to="/dashboard/selectedclass">
-                <FaBook className="text-[#e43d4e]"></FaBook>My Selected Class
-              </NavLink>
-            </li>
-            <li className=" text-lg text-gray-50">
-              <NavLink to="/dashboard/enrolledclass">
-                <FaBookReader className="text-[#e43d4e]"></FaBookReader>My
-                Enrolled Class
-              </NavLink>
-            </li>
+
             {/* common link */}
             <div className="divider"></div>
 

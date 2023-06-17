@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
+import useAdmin from "../../../Hooks/useAdmin";
 import logo from "../../../assets/images/logo.png";
 import { AuthContext } from "../../../providers/AuthProvider";
 import "./Navbar.css";
@@ -11,6 +12,7 @@ const Navbar = () => {
   };
 
   const { user, logOut } = useContext(AuthContext);
+  const [isAdmin] = useAdmin();
 
   const handleToLogOut = () => {
     logOut()
@@ -48,7 +50,6 @@ const Navbar = () => {
       </li>
     </>
   );
-  const isAdmin = true;
   return (
     <div className="shadow-xl border-b-2 border-red-600 w-full fixed top-0 left-0 z-50 bg-[#13182A] bg-opacity-80">
       <div className="flex md:flex items-center justify-between py-3.5 md:px-10 container mx-auto">
@@ -76,18 +77,32 @@ const Navbar = () => {
         {user ? (
           <>
             <div className="flex items-center">
+              {isAdmin ? (
+                <li>
+                  <Link
+                    to="/dashboard/adminhome"
+                    className="nav-list-style btn btn-error me-2"
+                  >
+                    Dashboard
+                  </Link>
+                </li>
+              ) : (
+                <li>
+                  <Link
+                    to="/dashboard/userhome"
+                    className="nav-list-style btn btn-error me-2"
+                  >
+                    Dashboard
+                  </Link>
+                </li>
+              )}
               <img
                 className="w-14 h-14 border-4 border-gray-400  px-0.5 rounded-full inline-block mr-4 "
                 src={user.photoURL}
                 alt=""
                 title={user?.displayName}
               />
-              <Link
-                to="/dashboard"
-                className="nav-list-style btn btn-error me-2"
-              >
-                Dashboard
-              </Link>
+
               <Link
                 onClick={handleToLogOut}
                 className="nav-list-style btn btn-warning"
