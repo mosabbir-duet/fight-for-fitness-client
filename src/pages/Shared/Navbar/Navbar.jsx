@@ -52,15 +52,6 @@ const Navbar = () => {
   return (
     <div className="shadow-xl border-b-2 border-red-600 w-full fixed top-0 left-0 z-50 bg-[#13182A] bg-opacity-80">
       <div className="flex md:flex items-center justify-between py-3.5 md:px-10 container mx-auto">
-        {/* <div
-          className="font-bold text-2xl cursor-pointer flex items-center  
-    text-gray-800"
-        >
-          <span className="text-3xl text-indigo-600 mr-1 pt-2">
-            <ion-icon name="logo-ionic"></ion-icon>
-          </span>
-          Designer
-        </div> */}
         <img className="w-20 h-20" src={logo} alt="" />
 
         <div
@@ -79,21 +70,9 @@ const Navbar = () => {
             open ? "top-28 " : "top-[-490px]"
           }`}
         >
-          {/* {Links.map((link) => (
-            <li key={link.name} className="md:ml-8 text-xl md:my-0 py-2  ">
-              <L
-                href={link.link}
-                className="text-gray-800 hover:text-gray-400 duration-500"
-              >
-                {link.name}
-              </L>
-            </li>
-          ))} */}
           {linksItem}
         </ul>
-        {/* <button className="btn bg-[#E43D4E] border-none hover:rounded-3xl hover:bg-red-700 hover:duration-75">
-          Get Started
-        </button> */}
+
         {user ? (
           <>
             <div className="flex items-center">

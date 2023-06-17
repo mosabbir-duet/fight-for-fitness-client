@@ -38,13 +38,13 @@ const Dashboard = () => {
             {isAdmin ? (
               <>
                 <li className="text-lg text-gray-50">
-                  <NavLink to="/dashboard/selectedclass">
+                  <NavLink to="/dashboard/manageclass">
                     <FaRegEdit className="text-[#e43d4e]"></FaRegEdit>Manage
                     Classes
                   </NavLink>
                 </li>
                 <li className=" text-lg text-gray-50">
-                  <NavLink to="/dashboard/enrolledclass">
+                  <NavLink to="/dashboard/manageusers">
                     <FaUserEdit className="text-[#e43d4e]"></FaUserEdit>Manage
                     Users
                   </NavLink>
