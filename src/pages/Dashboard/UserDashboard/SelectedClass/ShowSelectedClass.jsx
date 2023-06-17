@@ -14,7 +14,7 @@ const ShowSelectedClass = ({ cartItem, idx, refetch }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/carts/${id}`, {
+        fetch(`https://fight-for-fitness-server.vercel.app/carts/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

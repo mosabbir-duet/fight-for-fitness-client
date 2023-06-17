@@ -13,9 +13,12 @@ const ManageUsers = () => {
   });
 
   const handleToMakeAdmin = (user) => {
-    fetch(`http://localhost:3000/users/admin/${user._id}`, {
-      method: "PATCH",
-    })
+    fetch(
+      `https://fight-for-fitness-server.vercel.app/users/admin/${user._id}`,
+      {
+        method: "PATCH",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -33,9 +36,12 @@ const ManageUsers = () => {
       });
   };
   const handleToMakeInstructor = (user) => {
-    fetch(`http://localhost:3000/users/instructors/${user._id}`, {
-      method: "PATCH",
-    })
+    fetch(
+      `https://fight-for-fitness-server.vercel.app/users/instructors/${user._id}`,
+      {
+        method: "PATCH",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

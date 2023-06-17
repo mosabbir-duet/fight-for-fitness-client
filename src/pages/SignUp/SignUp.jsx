@@ -42,7 +42,7 @@ const SignUp = () => {
             email: data.email,
             image: data.photoURL,
           };
-          fetch("http://localhost:3000/users", {
+          fetch("https://fight-for-fitness-server.vercel.app/users", {
             method: "POST",
             headers: {
               "content-type": "application/json",

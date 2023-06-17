@@ -22,7 +22,7 @@ const ShowClassInfo = ({ classInfo }) => {
         email: user?.email,
         userName: user?.displayName,
       };
-      fetch("http://localhost:3000/carts", {
+      fetch("https://fight-for-fitness-server.vercel.app/carts", {
         method: "POST",
         headers: {
           "content-type": "application/json",

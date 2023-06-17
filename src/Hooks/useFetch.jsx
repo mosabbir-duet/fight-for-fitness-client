@@ -4,7 +4,7 @@ const useFetch = (typeOfInfo) => {
   const [info, setInfo] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/${typeOfInfo}`)
+    fetch(`https://fight-for-fitness-server.vercel.app/${typeOfInfo}`)
       .then((res) => res.json())
       .then((data) => {
         // console.log(data)

@@ -1,5 +1,6 @@
 import React from "react";
 import useCart from "../../../../Hooks/useCart";
+import PageName from "../../../../components/PageName";
 import ShowSelectedClass from "./ShowSelectedClass";
 
 const SelectedClass = () => {
@@ -8,6 +9,7 @@ const SelectedClass = () => {
 
   return (
     <div className="bg-red-100 w-10/12 p-12 rounded-xl">
+      <PageName pageName={"Selected Class"}></PageName>
       <div className="overflow-x-auto  rounded-md bg-gray-300">
         <table className="table table-zebra">
           {/* head */}
